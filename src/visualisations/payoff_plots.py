@@ -113,7 +113,7 @@ class ComplexPayoffPlotter(Basic_Payoff_Plotter):
                             horizontalalignment=alignment,
                             verticalalignment='top'
                 )
-            return fig, ax
+        return fig, ax
         
 class BullCallSpreadPlotter(ComplexPayoffPlotter):
     @staticmethod

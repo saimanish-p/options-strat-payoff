@@ -75,10 +75,6 @@ class StrategyRenderer:
             strategy_class: The class of the strategy to render
             strategy_name: Name of the strategy for display
         """
-
-        # Debugging: Print the strategy name
-        print(f"Selected strategy: {strategy_name}")
-
         # Normalize the strategy name by removing spaces
         normalized_strategy_name = strategy_name.replace(" ", "")
 
@@ -237,7 +233,6 @@ class StrategyRenderer:
                 return
         else:
             validation_result = StrategyValidator.validate_basic_inputs(inputs)
-            
 
         if not validation_result.is_valid:
             st.error(validation_result.message)
@@ -245,8 +240,6 @@ class StrategyRenderer:
         elif validation_result.severity == "warning":
             st.warning(validation_result.message)
 
-        # Create strategy instance
-        st.write("Creating strategy instance with inputs:", inputs)
         try:
             strategy = strategy_class(**inputs.__dict__)  # Unpack the dataclass to pass as keyword arguments
         except TypeError as e:
@@ -256,15 +249,19 @@ class StrategyRenderer:
         # After calculating results
         payoff_data = strategy.calculate_payoff()  # Ensure this includes the new Total Premium column
 
-        # Format and display results
-        formatted_data = DataFormatter.format_payoff_table(payoff_data, strategy_name)  # Ensure this is compatible
-
-        # Display payoff table
-        st.subheader(f"{strategy_name} - Payoff Table")
-        st.dataframe(formatted_data, height=800, width=800)  # Adjust display properties if needed
+        # Get formatted data and dimensions
+        formatted_df, height, width = DataFormatter.format_payoff_table(payoff_data, strategy_name)
+        
+        # Display the table with calculated dimensions
+        st.subheader(f"{strategy_name} - Net-Payoff Table")
+        st.dataframe(
+            formatted_df,
+            height=height,
+            width=width
+        )
 
         # Display payoff plot
-        st.subheader(f"{strategy_name} - Payoff Diagram")
+        st.subheader(f"{strategy_name} - Net-Payoff Graph")
         if normalized_strategy_name == 'BullCallSpread':
             fig, _ = BullCallSpreadPlotter.create_plot(strategy, normalized_strategy_name, figsize=(10, 5))
         elif normalized_strategy_name == 'BearPutSpread':
