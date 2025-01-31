@@ -1,4 +1,3 @@
-# src/strategies/__init__.py
 
 from .base_strategy import BaseOptionsStrategy, LongCall, ShortCall, LongPut, ShortPut
 from .complex_strategy import (

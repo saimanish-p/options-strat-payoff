@@ -1,7 +1,4 @@
 import pandas as pd
-import numpy as np
-from src.strategies.base_strategy import LongCall, ShortCall, LongPut, ShortPut
-from src.strategies.complex_strategy import BullCallSpread, BearPutSpread, LongStraddle, LongStrangle, Strip, Strap, LongButterfly
 
 class DataFormatter:
     # Constants for table sizing
@@ -26,9 +23,6 @@ class DataFormatter:
     @staticmethod
     def format_payoff_table(df: pd.DataFrame, strategy_name: str) -> tuple:
         formatted_df = df.copy()
-
-        #numeric_columns = formatted_df.select_dtypes(include=[np.number]).columns
-        #formatted_df[numeric_columns] = formatted_df[numeric_columns].round(2)
 
         # Add a Total Premium column based on the strategy type
         if strategy_name in ['bull_call_spread', 'bear_put_spread']:

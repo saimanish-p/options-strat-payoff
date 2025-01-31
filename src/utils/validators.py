@@ -1,4 +1,3 @@
-# src/utils/validators.py
 from dataclasses import dataclass
 from .strategy_inputs import (
     SingleOptionsInputs,

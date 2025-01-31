@@ -1,4 +1,3 @@
-# src/__init__.py
 from .strategies import (
     BaseOptionsStrategy,
     LongCall,

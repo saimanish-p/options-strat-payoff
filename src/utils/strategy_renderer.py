@@ -1,4 +1,3 @@
-# src/utils/strategy_renderer.py
 import streamlit as st
 import numpy as np
 from typing import Type, Union

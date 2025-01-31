@@ -1,4 +1,3 @@
-# src/utils/strategy_inputs.py
 from dataclasses import dataclass
 
 # Inputs for Simple Options Strategies
