@@ -40,7 +40,7 @@ STRATEGY_MAP: Dict[str, Type[Union[LongCall, ShortCall, LongPut, ShortPut, BullC
 def main():
     # Set page config
     st.set_page_config(
-        page_title="Options Strategy Calculator",
+        page_title="Options Strategy Payoff Calculator",
         page_icon="📈",
         layout="wide"
     )

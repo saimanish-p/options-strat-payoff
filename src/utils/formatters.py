@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+from src.strategies.base_strategy import LongCall, ShortCall, LongPut, ShortPut
+from src.strategies.complex_strategy import BullCallSpread, BearPutSpread, LongStraddle, LongStrangle, Strip, Strap, LongButterfly
 
 class DataFormatter:
     # Constants for table sizing
@@ -25,21 +27,27 @@ class DataFormatter:
     def format_payoff_table(df: pd.DataFrame, strategy_name: str) -> tuple:
         formatted_df = df.copy()
 
-        numeric_columns = formatted_df.select_dtypes(include=[np.number]).columns
-        formatted_df[numeric_columns] = formatted_df[numeric_columns].round(2)
+        #numeric_columns = formatted_df.select_dtypes(include=[np.number]).columns
+        #formatted_df[numeric_columns] = formatted_df[numeric_columns].round(2)
 
         # Add a Total Premium column based on the strategy type
         if strategy_name in ['bull_call_spread', 'bear_put_spread']:
-            formatted_df['Total Premium'] = formatted_df['Premium Low'] + formatted_df['Premium High']
-
+            formatted_df['Total Premium'] = formatted_df['Call 1: Premium'] + formatted_df['Call 2: Premium']
         elif strategy_name in ['long_straddle', 'long_strangle']:
-            formatted_df['Total Premium'] = formatted_df['Premium Call'] + formatted_df['Premium Put']
-
+            formatted_df['Total Premium'] = formatted_df['Call Premium'] + formatted_df['Put Premium']
         elif strategy_name == 'long_butterfly':
-            formatted_df['Total Premium'] = (formatted_df['Premium Low'] +
-                                          formatted_df['Premium Middle'] +
-                                          formatted_df['Premium High'])
+            formatted_df['Total Premium'] = (formatted_df['Lower Call Value'] +
+                                              formatted_df['Upper Call Value'] -
+                                              formatted_df['Middle Call Value'])
+
+        # Highlight based on net payoff
+        def highlight_rows(row):
+            return ['background-color: rgba(0, 255, 0, 0.2)' if row['Net Payoff'] > 0 else
+                    'background-color: rgba(255, 0, 0, 0.2)' if row['Net Payoff'] < 0 else
+                    'background-color: rgba(173, 216, 230, 0.2)' for _ in row]
+        # Apply the highlighting
+        styled_df = formatted_df.style.apply(highlight_rows, axis=1)
 
         height, width = DataFormatter.calculate_table_dimensions(formatted_df)
 
-        return formatted_df, height, width
+        return styled_df, height, width

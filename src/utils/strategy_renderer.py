@@ -1,5 +1,6 @@
 # src/utils/strategy_renderer.py
 import streamlit as st
+import numpy as np
 from typing import Type, Union
 
 # Importing validators
@@ -81,9 +82,6 @@ class StrategyRenderer:
         # Determine if the strategy is a multiple options strategy
         is_multiple_options = normalized_strategy_name in ['BullCallSpread', 'BearPutSpread', 'LongStraddle', 'LongStrangle', 'Strip', 'Strap', 'LongButterfly']
         is_single_options = normalized_strategy_name in ['LongCall', 'ShortCall', 'LongPut', 'ShortPut']
-
-        # Debugging: Print the flags
-        print(f"Is multiple options: {is_multiple_options}, Is single options: {is_single_options}")
         
         # Get user inputs
         inputs = None
@@ -248,10 +246,8 @@ class StrategyRenderer:
     
         # After calculating results
         payoff_data = strategy.calculate_payoff()  # Ensure this includes the new Total Premium column
-
         # Get formatted data and dimensions
         formatted_df, height, width = DataFormatter.format_payoff_table(payoff_data, strategy_name)
-        
         # Display the table with calculated dimensions
         st.subheader(f"{strategy_name} - Net-Payoff Table")
         st.dataframe(
