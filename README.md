@@ -75,14 +75,20 @@ where $K_1$, $K_2$, and $K_3$ are the lower, middle, and upper strike prices, an
 
 ## Key Features
 
-1. **Payoff Table Generation**: The application can generate a detailed payoff table for each of the supported options trading strategies, including the expiration price, premium, call/put value, and net payoff.
+1. **Payoff Table and Chart Generation**: The application can generate detailed payoff tables and charts for each of the supported options trading strategies, including the expiration price, premium, call/put value, net payoff, and highlighted breakeven point(s) and profit/loss zones.
 
 2. **Payoff Table Formatting**: The payoff table is formatted with intuitive color-coding to highlight profitable and losing scenarios. Positive net payoffs are shown in green, negative net payoffs are shown in red, and breakeven scenarios are shown in a light blue.
 
-3. **Responsive Table Layout**: The application automatically calculates the optimal height and width of the payoff table to ensure it is displayed in a clear and readable format.
+3. **Responsive Visualization**: The application automatically calculates the optimal height and width of the payoff table to ensure it is displayed in a clear and readable format. The payoff-graph highlights the break-even point(s) (abbreviated as BEP) for a given strategy using a green marker.
 
-4. **Error Handling**: The application includes robust error handling to ensure that it can gracefully handle any issues that may arise during the data processing or payoff calculation steps.
+4. **Graceful Error Handling / Validation Checks**: The application includes robust error handling to ensure that it can gracefully handle any issues that may arise while inputting parameters, calculating startegy payoffs, and visualising tabular/graphical plots.
 
 ## Contributing
 
-If you would like to contribute to the development of the options strategy payoff calculator, please feel free to clone the repository to your local machine, install the required dependencies, including `numpy`, `pandas`, `matplotlib`, and `streamlit`, make your contribution, and then submit a pull request. You can also use the discussions tab within the repository and raise issues if needed.
+If you would like to contribute to the development of the options strategy payoff calculator, please:
+
+1. Feel free to clone the repository to your local machine
+2. Install the required dependencies, including `numpy`, `pandas`, `matplotlib`, and `streamlit`
+3. Make your contribution, and then submit a pull request. 
+
+You can also use the discussions tab within the repository and raise issues if needed.
