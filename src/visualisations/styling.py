@@ -6,7 +6,7 @@ def render_header():
     
     # Credits section
     st.sidebar.markdown(
-        "<div style='text-align: center;'>"
+        "<div style='text-align: left;'>"
         "<p style='color: #666; font-size: 0.8em;'>"
         "Created by "
         "<a href='https://www.linkedin.com/in/saimanish-prabhakar-3074351a0/' "
