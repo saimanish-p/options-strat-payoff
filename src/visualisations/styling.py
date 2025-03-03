@@ -1,8 +1,8 @@
 import streamlit as st 
 
 def render_header():
-    """Render the app header with credits"""
-    st.sidebar.title("Options Strategy Calculator")
+
+    st.sidebar.title("Options Strategy Payoff Calculator")
     
     # Credits section
     st.sidebar.markdown(
