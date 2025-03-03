@@ -4,13 +4,7 @@ from typing import Tuple
 class Basic_Payoff_Plotter:
     @staticmethod
     def create_basic_payoff_plot(strategy_obj, title: str, figsize=(10, 5)) -> Tuple[plt.Figure, plt.Axes]:
-        """
-        Creates a simplified payoff plot focusing on the main payoff line
-        with minimal additional elements.
-        
-        Returns:
-            A tuple containing the figure and axes.
-        """
+
         # Get data
         payoff_data = strategy_obj.calculate_payoff()
         bep = strategy_obj.calculate_bep()  # This may need to handle multiple BEPs
@@ -70,9 +64,7 @@ class Basic_Payoff_Plotter:
 class ComplexPayoffPlotter(Basic_Payoff_Plotter):
     @staticmethod
     def create_complex_payoff_plot(strategy_obj, title: str, figsize=(10, 5)) -> Tuple[plt.Figure, plt.Axes]:
-        """
-        Creates a complex payoff plot that can handle multiple BEPs.
-        """
+
         fig, ax = Basic_Payoff_Plotter.create_basic_payoff_plot(strategy_obj, title, figsize)
         
         # Get data
