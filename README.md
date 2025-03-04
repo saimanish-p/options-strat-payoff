@@ -3,6 +3,7 @@
 ## Contact info
 
 Email: saimanishprabhakar2020@gmail.com
+
 [Linkedin](https://www.linkedin.com/in/saimanish-prabhakar-3074351a0/)
 
 ## About the project
