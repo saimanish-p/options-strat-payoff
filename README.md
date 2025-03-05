@@ -66,7 +66,7 @@ Here is a video explaining everything about the concept of the project, its feat
 
 *** Video Tutorial - Coming soon ***
 
-### Step-by-Step image walkthorugh of project
+### Step-by-Step image walkthrough of project
 
 Select a strategy from the dropdown list and input relevant parameters pertaining to chosen strategy
 ![Input Parameters](/images/input_parameters.png)
