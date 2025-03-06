@@ -71,7 +71,8 @@ Here is a video explaining everything about the concept of the project, its feat
 Select a strategy from the dropdown list and input relevant parameters pertaining to chosen strategy
 ![Input Parameters](/images/input_parameters.png)
 
-If you are unsure what the variable represents, please hover over the question mark symbol beside the specific parameter for additional context. 
+If you are unsure what the parameter represents, please hover over the question mark symbol beside the specific 
+parameter for additional context.
 
 ![Help Functionality](/images/help_functionality_user_parameters.png)
 
