@@ -60,12 +60,6 @@ git remote -v # confirm the changes
 ```
 ## Usage
 
-### Video walkthrough of project
-
-Here is a video explaining everything about the concept of the project, its features, and how to get the most out of it. Alternatively, you can read the written step-by-step walkthrough of the project alongside some images below if you can't stand my voice!
-
-*** Video Tutorial - Coming soon ***
-
 ### Step-by-Step image walkthrough of project
 
 Select a strategy from the dropdown list and input relevant parameters pertaining to chosen strategy
